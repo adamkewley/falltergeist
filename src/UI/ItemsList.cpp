@@ -77,7 +77,7 @@ namespace Falltergeist
             unsigned int index = (event->position().y() - y())/_slotHeight;
             if (index < _inventoryItems.size()) {
                 Game::getInstance()->mouse()->pushState(Input::Mouse::Cursor::NONE);
-                Game::getInstance()->mixer()->playACMSound("sound/sfx/ipickup1.acm");
+                //Game::getInstance()->mixer()->playACMSound("sound/sfx/ipickup1.acm");
                 _draggedItem = _inventoryItems.at(index).get();
                 _draggedItem->setType(InventoryItem::Type::DRAG);
                 _draggedItem->setOffset((event->position() - _draggedItem->position()) - (_draggedItem->size() / 2));
