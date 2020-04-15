@@ -114,15 +114,11 @@ namespace Falltergeist
             }
 
             if (auto itemsList = dynamic_cast<ItemsList*>(event->target())) {
-                // @todo create addItem method
                 this->addItem(itemsList->draggedItem(), 1);
 
                 itemsList->removeItem(itemsList->draggedItem(), 1);
                 itemsList->update();
-            }
-
-            if (auto inventoryItem = dynamic_cast<UI::InventoryItem*>(event->target())) {
-                // @todo create addItem method
+            } else if (auto inventoryItem = dynamic_cast<UI::InventoryItem*>(event->target())) {
                 this->addItem(inventoryItem, 1);
 
                 if (dynamic_cast<Game::ArmorItemObject*>(inventoryItem->item()) && inventoryItem->type() == InventoryItem::Type::SLOT) {

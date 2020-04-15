@@ -25,13 +25,13 @@ namespace Falltergeist
         {
         }
 
-        TextArea::TextArea(const std::string& text, const Point& pos) : Base(pos)
+        TextArea::TextArea(std::string text, const Point& pos) : Base(pos)
         {
             _timestampCreated = SDL_GetTicks();
-            setText(text);
+            setText(std::move(text));
         }
 
-        TextArea::TextArea(const std::string& text, int x, int y) : TextArea(text, Point(x, y))
+        TextArea::TextArea(std::string text, int x, int y) : TextArea(std::move(text), Point(x, y))
         {
         }
 
@@ -49,9 +49,7 @@ namespace Falltergeist
             _wordWrap = textArea._wordWrap;
         }
 
-        TextArea::~TextArea()
-        {
-        }
+        TextArea::~TextArea() = default;
 
         void TextArea::_needUpdate(bool lines)
         {
@@ -92,9 +90,9 @@ namespace Falltergeist
             _needUpdate();
         }
 
-        void TextArea::setText(const std::string& text)
+        void TextArea::setText(std::string text)
         {
-            _text = text;
+            _text = std::move(text);
             _needUpdate(true);
         }
 

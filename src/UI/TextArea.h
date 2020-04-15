@@ -45,12 +45,12 @@ namespace Falltergeist
             /**
              * Creates TextArea with given text at the given position.
              */
-            TextArea(const std::string& text, const Point& pos = Point());
+            TextArea(std::string text, const Point& pos = Point());
 
             /**
              * Creates TextArea with given text at the given position.
              */
-            TextArea(const std::string& text, int x, int y);
+            TextArea(std::string text, int x, int y);
 
             /**
              * Creates TextArea as copy of another TextArea, placed at the given position (0,0 by default).
@@ -66,7 +66,7 @@ namespace Falltergeist
             /**
              * Replaces text content. Line break character \n is used to span text to multiple lines.
              */
-            void setText(const std::string& text);
+            void setText(std::string text);
 
             /**
              * Appends given string to existing text. Line break character \n is used to span text to multiple lines.
