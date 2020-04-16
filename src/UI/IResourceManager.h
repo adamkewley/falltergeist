@@ -25,11 +25,7 @@ namespace Falltergeist
 
                 // TODO replace with smart pointer
                 virtual Image* getImage(const std::string &filename) = 0;
-                Image* getImage(const std::string &filename, Graphics::Point p) {
-                    auto img = this->getImage(filename);
-                    img->setPosition(p);
-                    return img;
-                }
+                virtual Image* getImage(const std::string &filename, Graphics::Point p) = 0;
                 virtual std::shared_ptr<Graphics::Sprite> getSprite(const std::string &filename) = 0;
         };
     }
